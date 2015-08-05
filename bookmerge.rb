@@ -18,11 +18,11 @@ require './corpus.rb'
 
 mycorpus = Corpus.new
 
-puts "Welcome to the book merger!"
-puts "You can choose two books from this list:"
-puts mycorpus.keys
-puts "..."
-puts "Please enter your first text:"
+# puts "Welcome to the book merger!"
+# puts "You can choose two books from this list:"
+# puts mycorpus.keys
+# puts "..."
+# puts "Please enter your first text:"
 # text1 = gets.chomp
 text1 = "The Bible"
 puts "Please enter your second text"
@@ -50,6 +50,7 @@ puts sentence_array = generator.get_sentences(num_sentences)
 # puts "all done! you can view your file at '#{this_file}'!"
 
 # displaytext = File.read(this_file)
+
 
 get '/' do
   @displaytext = sentence_array

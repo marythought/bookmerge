@@ -1,19 +1,61 @@
-<h1>Enter two texts</h1>
+<head>
+<title>Book Merge!</title>
+<link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+</head>
+<body>
+<h1>Welcome to BOOK MERGE!</h1>
 
-<p><%= @corpus.keys %></p>
+<p>You may choose two books from the following:</p>
+
+<ul>
+  <p> <% @corpus.keys.each do |key| %>
+    <li><%= key %></li>
+    <% end %>
+  </p>
+</ul>
 
 <form>
-First book:<br>
-<input type="text" name="firstbook" value="Ulysses">
-<br>
-Second book:<br>
-<input type="text" name="secondbook" value="The Bible">
-<br><br>
-<input type="submit" value="Submit">
+  <fieldset>
+  <p>First book:</p>
+  <select name="book1">
+    <% @corpus.keys.each do |key| %>
+      <option value='<%= "#{key.gsub(/\s+/, '')}" %>'><%= key %></option>
+    <% end %>
+  </select>
+
+  <p>Second book:</p>
+  <select name="book2">
+    <% @corpus.keys.each do |key| %>
+      <option value='<%= "#{key.gsub(/\s+/, '')}" %>'><%= key %></option>
+    <% end %>
+  </select>
+
+  <br><br>
+  <input id="runbutton" type="submit" value="Submit">
+  </fieldset>
 </form>
 
-<p><%= @displaytext %></p>
+<!-- OK, changing the displaytext to a javascript variable doesn't seem smart, because the quote marks mess everything up. So, skip it. It was a band-aid anyway. How, at this point, do I make the ruby code in bookmerge.rb run on 2 variables, book1 and book2, which have been selected and submitted here? It should run and then return a block of text to be inserted into "results" div. Then the javascript says "when the button is pushed, display results" (maybe not needed). -->
 
-<!-- <form method="get" action="/combine_texts">
-Does <input type="text" name="text1"> follow <input type="text" name="text2">? <input type="submit" value="Go">
-</form> -->
+
+<!--
+<script type="text/javascript" charset="utf-8">
+$( document ).ready(function() {
+  var displaytext = "<%= @displaytext || 'null' %>";
+
+  $('#runButton').on('click', function() {
+    $('#results').text(displaytext);
+  }
+});
+</script>
+-->
+
+
+<div id="results">
+
+<!--   <p><%= @displaytext %></p> -->
+
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</body>
