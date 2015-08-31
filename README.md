@@ -1,5 +1,13 @@
 # bookmerge
 
+*update* this project has moved to:
+
+[https://github.com/marythought/sinatra]
+
+...
+
+(Original README follows:)
+
 This is a work in progress which started with the idea to combine two public domain texts from Gutenberg.org using markov chains (Peter Pan and Beowulf, in this case), and evolved to where I'm now trying to build the app that will allow a user to choose two (or more?) books to combine from a list of possible (public domain) texts.
 
 Ruby script using Gutenberg texts (cleaned by me) and markov_chains gem by Justin Domingue: https://github.com/justindomingue/markov_chains.
